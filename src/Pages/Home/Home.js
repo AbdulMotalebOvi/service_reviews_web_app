@@ -1,9 +1,14 @@
 import React from 'react';
+import useTitle from '../../Hooks/useTitle';
+import Services from '../Services/Services';
+import Banner from './Banner/Banner';
 
 const Home = () => {
+    useTitle('Home')
     return (
         <div>
-            <h1>tHIS IS from home</h1>
+            <Banner></Banner>
+            <Services></Services>
         </div>
     );
 };

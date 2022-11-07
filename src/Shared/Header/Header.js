@@ -1,9 +1,76 @@
 import React from 'react';
+import { Avatar, Button, Dropdown, Navbar } from 'flowbite-react';
 
 const Header = () => {
     return (
-        <div>
-            <h1>This is from header</h1>
+        <div className='max-w-screen-xl mx-auto'>
+            <Navbar
+                fluid={true}
+                rounded={true}
+                className="cursor-pointer"
+            >
+                <Navbar.Brand to="https://flowbite.com/">
+                    <img
+                        src="https://flowbite.com/docs/images/logo.svg"
+                        className="mr-3 h-6 sm:h-9"
+                        alt="Flowbite Logo"
+                    />
+                    <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+                        Flowbite
+                    </span>
+                </Navbar.Brand>
+                <Navbar.Collapse>
+                    <Navbar.Link
+                        to="/"
+                        active={true}
+                    >
+                        Home
+                    </Navbar.Link>
+                    <Navbar.Link to="/navbars">
+                        About
+                    </Navbar.Link>
+                    <Navbar.Link to="">
+                        Services
+                    </Navbar.Link>
+                    <Navbar.Link to="/navbars">
+                        Pricing
+                    </Navbar.Link>
+                    <Navbar.Link to="/navbars">
+                        Contact
+                    </Navbar.Link>
+                </Navbar.Collapse>
+                <div className="flex md:order-2">
+                    <Dropdown
+                        arrowIcon={false}
+                        inline={true}
+                        label={<Avatar alt="User settings" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" rounded={true} />}
+                    >
+                        <Dropdown.Header>
+                            <span className="block text-sm">
+                                Bonnie Green
+                            </span>
+                            <span className="block truncate text-sm font-medium">
+                                name@flowbite.com
+                            </span>
+                        </Dropdown.Header>
+                        <Dropdown.Item>
+                            Dashboard
+                        </Dropdown.Item>
+                        <Dropdown.Item>
+                            Settings
+                        </Dropdown.Item>
+                        <Dropdown.Item>
+                            Earnings
+                        </Dropdown.Item>
+                        <Dropdown.Divider />
+                        <Dropdown.Item>
+                            Sign out
+                        </Dropdown.Item>
+                    </Dropdown>
+                    <Navbar.Toggle />
+                </div>
+
+            </Navbar>
         </div>
     );
 };
