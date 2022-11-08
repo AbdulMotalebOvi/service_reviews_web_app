@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { FaArrowRight } from 'react-icons/fa';
 
-const SingleService = ({ services }) => {
+const SingleService = ({ services, addToCart }) => {
     const { strMealThumb, strInstructions, strMeal, price, _id } = services
     return (
 
@@ -27,8 +27,8 @@ const SingleService = ({ services }) => {
                     {
                         strInstructions.length > 250 &&
                         <>
-                            <p > {strInstructions.slice(0, 80) + '..'} </p>
-                            <button className='my-3'><Link className='flex items-center ' to={`serviceDetails/${_id}`}>Read More <span className='mx-2'><FaArrowRight /></span></Link></button>
+                            <p > {strInstructions.slice(0, 80) + '...'} </p>
+                            <button className='my-3'><Link className='flex items-center' onClick={() => addToCart(services)} to={`serviceDetails/${_id}`}>Read More <span className='mx-2'><FaArrowRight /></span></Link></button>
                         </>
                     }
                 </div>

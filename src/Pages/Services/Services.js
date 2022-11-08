@@ -2,13 +2,16 @@ import React, { useEffect, useState } from 'react';
 import SingleService from './SingleService';
 import { Link } from 'react-router-dom';
 
+
 const Services = () => {
     const [services, setServices] = useState([])
+
     useEffect(() => {
         fetch('http://localhost:5000/services')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
+
     return (
         <div className='max-w-screen-xl mx-auto my-20 text-[#444444d9]'>
             <h1 className='text-center text-3xl font-bold my-5'>My Services</h1>
@@ -25,12 +28,7 @@ const Services = () => {
                                 <p class="mt-4 max-w-[45ch] text-sm text-gray-700">
                                     A kitchen is a room that is used for cooking and for household jobs such as washing dishes. Synonyms: cookhouse, galley, kitchenette, scullery More Synonyms of kitchen. 2. See also soup kitchen.
                                 </p>
-
-                                <div
-
-                                >
-
-
+                                <div>
                                     <Link
                                         to="/serviceALl"
                                         class="mt-6 inline-block rounded bg-black px-6 py-3 text-sm text-white"
@@ -46,6 +44,7 @@ const Services = () => {
                                 services.map(sr => <SingleService
                                     key={sr._id}
                                     services={sr}
+
                                 ></SingleService>)
                             }
                         </div>

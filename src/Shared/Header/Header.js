@@ -1,23 +1,43 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../../assests/logo/loho.png'
+import { AuthUseContext } from '../Context/UseAuthContext';
 
 const Header = () => {
+    const { user, logOut } = useContext(AuthUseContext)
+    const handlerToSIgnOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(err => console.log(err))
+    }
     const navLinks =
         <>
             <li><Link to='/'>Home</Link></li>
-            <li><Link>About</Link></li>
             <li><Link to='/serviceALl'>Services</Link></li>
-            {/* {
+            {
                 user?.email ?
                     <>
-                        <li><Link to='/order'>Order</Link></li>
-                        <li><p>{user?.email}</p></li>
-                        <li><Link onClick={handlerToSIgnOut} to='/'>Sign Out</Link></li>
+
+                        <li tabIndex={0}>
+                            <Link className="justify-between">
+                                Profile
+                                <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+                            </Link>
+                            <ul className="p-2 bg-slate-100">
+                                <li><Link to='/addservice'>Add Service</Link></li>
+                                <li><Link to=''>My Reviews</Link></li>
+                            </ul>
+                        </li>
+                        <li><button className="btn btn-outline btn-warning"><Link onClick={handlerToSIgnOut} to='/'>Sign Out</Link></button></li>
+
                     </>
                     :
-                    <li><Link to='/login'>Log In</Link></li>
-            } */}
-            <li><Link>Contact</Link></li>
+                    <>
+                        <li><button className="btn btn-outline btn-secondary mr-4"><Link to='/login'>Login</Link></button></li>
+                        <li>
+                            <button className="btn btn-outline btn-secondary"><Link to='/register'>Register</Link></button></li>
+                    </>
+            }
         </>
     return (
         <div className='max-w-screen-xl mx-auto'>
@@ -31,15 +51,15 @@ const Header = () => {
                             {navLinks}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                    <Link className="btn btn-ghost normal-case text-xl"> daisyUI</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
                         {navLinks}
                     </ul>
                 </div>
-                <div className="navbar-end">
-                    <a className="btn">Get started</a>
+                <div className="">
+
                 </div>
             </div>
         </div>

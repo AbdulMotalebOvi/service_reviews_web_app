@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { FaArrowRight, FaStar } from 'react-icons/fa';
 
 const AllServices = () => {
     const [allServices, setServices] = useState([])
@@ -15,16 +17,28 @@ const AllServices = () => {
                         <div key={services._id} className="card lg:card-side w-3/4 m-auto my-5 h-[300px] bg-base-100 border">
                             <figure><img src={services.strMealThumb} className='w-[400px]' alt="Album" /></figure>
                             <div className="card-body">
-                                <h2 className="card-title">New album is released!</h2>
-                                <p>Click the button to listen on Spotiwhy app.</p>
+                                <div className='flex justify-between items-center'>
+                                    <h2 className="card-title">{services.strMeal}</h2>
+                                    <h1 className='text-3xl text-red-700'>${services.price}</h1>
+                                </div>
+
+                                <div className='flex justify-between items-center'>
+                                    <p className='text-[14px]'>{services.strInstructions.slice(0, 100) + '...'}.</p>
+                                    <span className='text-2xl text-yellow-400 flex items-center'> <FaStar />
+                                        <FaStar />
+                                        <FaStar />
+
+                                    </span>
+                                </div>
                                 <div className="card-actions justify-end">
-                                    <button className="btn btn-primary">Listen</button>
+                                    <button className="btn btn-primary"><Link className='flex items-center ' to={`/serviceDetails/${services._id}`}>Show More<span className='mx-2'><FaArrowRight /></span></Link></button>
                                 </div>
                             </div>
                         </div>
                     )
                 })
             }
+
         </div>
     );
 };
