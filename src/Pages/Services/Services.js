@@ -11,46 +11,49 @@ const Services = () => {
     }, [])
     return (
         <div className='max-w-screen-xl mx-auto my-20 text-[#444444d9]'>
-            <h1 className='text-center text-3xl font-bold '>My Services</h1>
-            <div>
-                {
-                    services.map(sr => <SingleService
-                        key={sr._id}
-                        services={sr}
-                    ></SingleService>)
-                }
-            </div>
+            <h1 className='text-center text-3xl font-bold my-5'>My Services</h1>
 
-
-            <Link
-                class="group flex items-center justify-between rounded-lg border border-indigo-600 bg-indigo-600 px-5 py-3 transition-colors hover:bg-transparent w-[16%] m-auto focus:outline-none focus:ring"
-                to="/services"
-            >
-                <span
-                    class="font-medium text-white transition-colors group-hover:text-indigo-600 group-active:text-indigo-500"
-                >
-                    Show More
-                </span>
-
-                <span
-                    class="ml-4 flex-shrink-0 rounded-full border border-current bg-white p-2 text-indigo-600 group-active:text-indigo-500"
-                >
-                    <svg
-                        class="h-5 w-5"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
+            <section>
+                <div class="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8">
+                    <div
+                        class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:items-stretch"
                     >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M17 8l4 4m0 0l-4 4m4-4H3"
-                        />
-                    </svg>
-                </span>
-            </Link>
+                        <div class="flex items-center rounded bg-gray-100 p-8">
+                            <div class="mx-auto text-center lg:text-left">
+                                <h2 class="text-2xl font-bold">Services</h2>
+
+                                <p class="mt-4 max-w-[45ch] text-sm text-gray-700">
+                                    A kitchen is a room that is used for cooking and for household jobs such as washing dishes. Synonyms: cookhouse, galley, kitchenette, scullery More Synonyms of kitchen. 2. See also soup kitchen.
+                                </p>
+
+                                <div
+
+                                >
+
+
+                                    <Link
+                                        to="/serviceALl"
+                                        class="mt-6 inline-block rounded bg-black px-6 py-3 text-sm text-white"
+                                    >
+                                        View All Services
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4 lg:col-span-2 lg:grid-cols-3 lg:py-12">
+                            {
+                                services.map(sr => <SingleService
+                                    key={sr._id}
+                                    services={sr}
+                                ></SingleService>)
+                            }
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
         </div>
     );
 };

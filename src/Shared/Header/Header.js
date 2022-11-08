@@ -1,76 +1,47 @@
 import React from 'react';
-import { Avatar, Button, Dropdown, Navbar } from 'flowbite-react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
+    const navLinks =
+        <>
+            <li><Link to='/'>Home</Link></li>
+            <li><Link>About</Link></li>
+            <li><Link to='/serviceALl'>Services</Link></li>
+            {/* {
+                user?.email ?
+                    <>
+                        <li><Link to='/order'>Order</Link></li>
+                        <li><p>{user?.email}</p></li>
+                        <li><Link onClick={handlerToSIgnOut} to='/'>Sign Out</Link></li>
+                    </>
+                    :
+                    <li><Link to='/login'>Log In</Link></li>
+            } */}
+            <li><Link>Contact</Link></li>
+        </>
     return (
         <div className='max-w-screen-xl mx-auto'>
-            <Navbar
-                fluid={true}
-                rounded={true}
-                className="cursor-pointer"
-            >
-                <Navbar.Brand to="https://flowbite.com/">
-                    <img
-                        src="https://flowbite.com/docs/images/logo.svg"
-                        className="mr-3 h-6 sm:h-9"
-                        alt="Flowbite Logo"
-                    />
-                    <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-                        Flowbite
-                    </span>
-                </Navbar.Brand>
-                <Navbar.Collapse>
-                    <Navbar.Link
-                        to="/"
-                        active={true}
-                    >
-                        Home
-                    </Navbar.Link>
-                    <Navbar.Link to="/navbars">
-                        About
-                    </Navbar.Link>
-                    <Navbar.Link to="">
-                        Services
-                    </Navbar.Link>
-                    <Navbar.Link to="/navbars">
-                        Pricing
-                    </Navbar.Link>
-                    <Navbar.Link to="/navbars">
-                        Contact
-                    </Navbar.Link>
-                </Navbar.Collapse>
-                <div className="flex md:order-2">
-                    <Dropdown
-                        arrowIcon={false}
-                        inline={true}
-                        label={<Avatar alt="User settings" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" rounded={true} />}
-                    >
-                        <Dropdown.Header>
-                            <span className="block text-sm">
-                                Bonnie Green
-                            </span>
-                            <span className="block truncate text-sm font-medium">
-                                name@flowbite.com
-                            </span>
-                        </Dropdown.Header>
-                        <Dropdown.Item>
-                            Dashboard
-                        </Dropdown.Item>
-                        <Dropdown.Item>
-                            Settings
-                        </Dropdown.Item>
-                        <Dropdown.Item>
-                            Earnings
-                        </Dropdown.Item>
-                        <Dropdown.Divider />
-                        <Dropdown.Item>
-                            Sign out
-                        </Dropdown.Item>
-                    </Dropdown>
-                    <Navbar.Toggle />
+            <div className="navbar bg-base-100 ">
+                <div className="navbar-start">
+                    <div className="dropdown">
+                        <label tabIndex={0} className="btn btn-ghost lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                        </label>
+                        <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                            {navLinks}
+                        </ul>
+                    </div>
+                    <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
                 </div>
-
-            </Navbar>
+                <div className="navbar-center hidden lg:flex">
+                    <ul className="menu menu-horizontal p-0">
+                        {navLinks}
+                    </ul>
+                </div>
+                <div className="navbar-end">
+                    <a className="btn">Get started</a>
+                </div>
+            </div>
         </div>
     );
 };
