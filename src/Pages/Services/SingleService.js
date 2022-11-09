@@ -2,8 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { FaArrowRight } from 'react-icons/fa';
+import useTitle from '../../Hooks/useTitle';
 
 const SingleService = ({ services, addToCart }) => {
+    useTitle('Services')
     const { strMealThumb, strInstructions, strMeal, price, _id } = services
     return (
 

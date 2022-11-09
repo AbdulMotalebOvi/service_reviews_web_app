@@ -4,9 +4,11 @@ import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import Lottie from "lottie-react";
 import animate from '../../animations/125886-login-bounce.json'
 import { AuthUseContext } from '../../Shared/Context/UseAuthContext';
+import useTitle from '../../Hooks/useTitle';
 
 
 const Details = () => {
+    useTitle('Reviews')
     const loader = useLoaderData()
     const { user } = useContext(AuthUseContext)
     const navigate = useNavigate()
@@ -158,7 +160,7 @@ const Details = () => {
                                                 Your Comment
                                             </label>
 
-                                            <input className="textarea border w-full" type="text" name="message" id="" />
+                                            <input className="textarea border w-full border-black" type="text" name="message" id="" />
                                         </div>
 
                                         <div className="col-span-6">

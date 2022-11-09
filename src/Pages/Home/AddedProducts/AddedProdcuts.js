@@ -4,9 +4,11 @@ import Slider from 'react-slick';
 import Lottie from "lottie-react";
 import animate from '../../../animations/125886-login-bounce.json'
 import { AuthUseContext } from '../../../Shared/Context/UseAuthContext';
+import useTitle from '../../../Hooks/useTitle';
 
 const AddedProdcuts = () => {
     const { user } = useContext(AuthUseContext)
+    useTitle('Added-Products')
     const [data, setData] = useState([])
     useEffect(() => {
         fetch('http://localhost:5000/addedProducts')
@@ -52,7 +54,7 @@ const AddedProdcuts = () => {
             {
                 user?.email ?
                     <div className='max-w-screen-xl mx-auto my-20'>
-                        <h1 className='text-3xl font-bold my-3 text-[#444444d9] '>My Products</h1>
+                        <h1 className='text-3xl font-bold my-4 text-[#444444d9] '>My Products</h1>
                         <div className=''>
                             {
                                 data.length >= 3 &&
@@ -84,7 +86,7 @@ const AddedProdcuts = () => {
                     :
                     <div className='max-w-screen-xl mx-auto text-center space-y-5'>
                         <Lottie className='w-[130px] m-auto' animationData={animate} loop={true} />
-                        <p className='text-2xl font-semibold text-[#444444d9]'>You're Not Logged In ,Please!</p>
+                        <p className='text-2xl font-semibold text-[#444444d9]'>See Your All Added Services,Please!</p>
                         <button className="text-center btn btn-outline btn-error"><Link to='/login'>Log In Now </Link></button>
                     </div>
             }

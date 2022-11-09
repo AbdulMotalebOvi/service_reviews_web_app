@@ -5,8 +5,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { AuthUseContext } from '../Context/UseAuthContext';
 import { FaGoogle, FaFacebook, FaGithub } from 'react-icons/fa';
+import useTitle from '../../Hooks/useTitle';
 
 const SignUp = () => {
+    useTitle('Sign-Up')
     const [characters, setCharacters] = useState('')
     const { sigunUpWIthEmailANdPassword, updateUSer, createuserByGoogle, createuserByFacebook, createuserByGithub } = useContext(AuthUseContext)
     const navigate = useNavigate()
@@ -82,7 +84,7 @@ const SignUp = () => {
 
 
     return (
-        <div className='max-w-screen-xl mx-auto flex items-center justify-center'>
+        <div className='max-w-screen-xl mx-auto flex  lg:flex-row  flex-col items-center justify-center'>
 
             <Lottie className='w-1/3' animationData={animate} loop={true} />
 
@@ -90,11 +92,11 @@ const SignUp = () => {
             <div className="px-4 py-16 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-lg">
                     <h1 className="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">
-                        Get started today
+                        Please Register
                     </h1>
 
                     <p className="mx-auto mt-4 max-w-md text-center text-gray-500">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        You can force everyone in your organization to sign in or just specific users.
                     </p>
                     <div className="mt-6 mb-0 space-y-6 rounded-lg p-8 border">
                         <form onSubmit={handlerToSIgnUp} >

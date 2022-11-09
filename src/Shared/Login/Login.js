@@ -4,10 +4,13 @@ import Lottie from "lottie-react";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthUseContext } from '../Context/UseAuthContext';
 import toast from 'react-hot-toast';
+import useTitle from '../../Hooks/useTitle';
 
 const Login = () => {
     const { signIn } = useContext(AuthUseContext);
+
     const [password, setErrorpassword] = useState('')
+    useTitle('Login')
 
     const navigate = useNavigate()
     let location = useLocation();
@@ -46,12 +49,12 @@ const Login = () => {
             })
     }
     return (
-        <div className='max-w-screen-xl mx-auto flex items-center justify-center'>
+        <div className='max-w-screen-xl mx-auto flex lg:flex-row  flex-col items-center justify-center'>
             <Lottie className='w-1/3' animationData={animate} loop={true} />
             <div className="px-4 py-16 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-lg">
                     <h1 className="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">
-                        Get started today
+                        Please Log In Now!
                     </h1>
 
                     <p className="mx-auto mt-4 max-w-md text-center text-gray-500">

@@ -1,7 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Slider from 'react-slick';
+import Lottie from "lottie-react";
+import animate from '../../../animations/125886-login-bounce.json'
+import { AuthUseContext } from '../../../Shared/Context/UseAuthContext';
+import { Link } from 'react-router-dom';
 
 const ServiceReviews = () => {
+    const { user } = useContext(AuthUseContext)
     const [reviews, setReviews] = useState([])
     useEffect(() => {
         fetch('http://localhost:5000/allReviews')
@@ -9,63 +14,101 @@ const ServiceReviews = () => {
             .then(data => setReviews(data))
     }, [reviews])
     const settings = {
-        dots: false,
+        dots: true,
         infinite: true,
-        speed: 500,
+        autoplay: true,
+        speed: 2000,
+        autoplaySpeed: 5000,
+        cssEase: "linear",
         slidesToShow: 3,
-        slidesToScroll: 1
-    };
-    return (
-        <>
+        slidesToScroll: 2,
+        pauseOnHover: true,
+        initialSlide: 0,
+        responsive: [
             {
-                reviews.length > 1 &&
-                <>
-                    <div className='max-w-screen-xl mx-auto my-20'>
-                        <h1 className='text-2xl ml-5 text-[#444444d9] font-bold text-left'>My Customer's Reviews</h1>
-                        <div>
-
-                            {
-
-                                reviews.sort((dateA, dateB) => dateB.time - dateA.time).length >= 3 &&
-                                <>
-                                    <Slider {...settings}>
-                                        {
-                                            reviews.map(sr => {
-
-                                                return (
-
-                                                    <div >
-                                                        <div
-                                                            class="rounded-2xl 
-                                                            m-5
-                                                            bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 shadow-xl"
-                                                        >
-                                                            <div class="block rounded-xl bg-white p-6 sm:p-8" >
-                                                                <img src={sr.photo} className='w-[60px] h-[60px] rounded-full' alt="" />
-                                                                <p className='mt-2'>{sr.customer}</p>
-                                                                <div class="mt-5 sm:pr-8">
-                                                                    <h3 class="text-xl font-bold text-gray-900">{sr.serviceName}</h3>
-                                                                    <p class="mt-2 text-sm text-gray-500">
-                                                                        {sr.message}
-                                                                    </p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                )
-                                            })
-                                        }
-                                    </Slider>
-
-                                </>
-
-                            }
-                        </div>
-                    </div>
-                </>
+                breakpoint: 426,
+                settings: {
+                    slidesToShow: 1,
+                    centerMode: false,
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                    centerMode: false,
+                }
+            },
+            {
+                breakpoint: 1024,
+                settings: { slidesToShow: 3, slidesToScroll: 3, infinite: false }
             }
-        </>
+        ],
+
+
+    }
+    return (
+        <div className='my-20'>
+            {
+                user?.email ?
+                    <>
+                        {
+                            reviews.length > 1 &&
+                            <>
+                                <div className='max-w-screen-xl mx-auto my-20'>
+                                    <h1 className='text-2xl ml-5 text-[#444444d9] font-bold text-left'>My Customer's Reviews</h1>
+                                    <div>
+
+                                        {
+
+                                            reviews.sort((dateA, dateB) => dateB.time - dateA.time).length >= 3 &&
+                                            <>
+                                                <Slider {...settings}>
+                                                    {
+                                                        reviews.map(sr => {
+
+                                                            return (
+
+                                                                <div >
+                                                                    <div
+                                                                        class="rounded-2xl 
+                                                                m-5
+                                                                bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 shadow-xl"
+                                                                    >
+                                                                        <div class="block rounded-xl bg-white p-6 sm:p-8" >
+                                                                            <img src={sr.photo} className='w-[60px] h-[60px] rounded-full' alt="" />
+                                                                            <p className='mt-2'>{sr.customer}</p>
+                                                                            <div class="mt-5 sm:pr-8">
+                                                                                <h3 class="text-xl font-bold text-gray-900">{sr.serviceName}</h3>
+                                                                                <p class="mt-2 text-sm text-gray-500">
+                                                                                    {sr.message}
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            )
+                                                        })
+                                                    }
+                                                </Slider>
+
+                                            </>
+
+                                        }
+                                    </div>
+                                </div>
+                            </>
+                        }
+                    </>
+                    :
+                    <div className='max-w-screen-xl mx-auto text-center space-y-5'>
+                        <Lottie className='w-[130px] m-auto' animationData={animate} loop={true} />
+                        <p className='text-2xl font-semibold text-[#444444d9]'>See Your All Reviews ,Please!</p>
+                        <button className="text-center btn btn-outline btn-error"><Link to='/login'>Log In Now </Link></button>
+                    </div>
+            }
+        </div>
     );
 };
 
