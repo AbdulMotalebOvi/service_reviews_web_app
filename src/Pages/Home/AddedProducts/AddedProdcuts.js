@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
+import Lottie from "lottie-react";
+import animate from '../../../animations/125886-login-bounce.json'
 import { AuthUseContext } from '../../../Shared/Context/UseAuthContext';
 
 const AddedProdcuts = () => {
@@ -81,6 +83,7 @@ const AddedProdcuts = () => {
                     </div>
                     :
                     <div className='max-w-screen-xl mx-auto text-center space-y-5'>
+                        <Lottie className='w-[130px] m-auto' animationData={animate} loop={true} />
                         <p className='text-2xl font-semibold text-[#444444d9]'>You're Not Logged In ,Please!</p>
                         <button className="text-center btn btn-outline btn-error"><Link to='/login'>Log In Now </Link></button>
                     </div>

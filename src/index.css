@@ -8,3 +8,15 @@ body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
 }
+
+h1,
+h2,
+h3,
+h4,
+p {
+  color: #444444d9;
+}
+
+h1 {
+  text-align: center;
+}

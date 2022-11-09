@@ -2,8 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import { AuthUseContext } from '../../Shared/Context/UseAuthContext';
-import Reviews from './Reviews';
-// import { addToDb, getProductId } from '../../FakeDB/fakedb';
+
 
 const Details = () => {
     const loader = useLoaderData()
@@ -176,10 +175,6 @@ const Details = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-            {/* reviews */}
-            <div>
-                <Reviews></Reviews>
             </div>
         </div>
     );

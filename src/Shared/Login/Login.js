@@ -40,7 +40,7 @@ const Login = () => {
                     </h1>
 
                     <p className="mx-auto mt-4 max-w-md text-center text-gray-500">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        You can force everyone in your organization to sign in or just specific users
                     </p>
 
                     <form onSubmit={logIn} className="mt-6 mb-0 space-y-4 rounded-lg p-8 border">

@@ -14,7 +14,7 @@ const Services = () => {
 
     return (
         <div className='max-w-screen-xl mx-auto my-20 text-[#444444d9]'>
-            <h1 className='text-center text-3xl font-bold my-5'>My Services</h1>
+            <h1 className='text-3xl font-bold my-5'>My Services</h1>
 
             <section>
                 <div class="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8">
