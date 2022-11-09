@@ -8,8 +8,6 @@ const SingleService = ({ services, addToCart }) => {
     useTitle('Services')
     const { strMealThumb, strInstructions, strMeal, price, _id } = services
     return (
-
-
         <div className="block">
             <PhotoProvider>
                 <PhotoView key={_id} src={strMealThumb}>

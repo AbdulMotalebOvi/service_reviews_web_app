@@ -25,8 +25,8 @@ const AllServices = () => {
             {
                 allServices.map(services => {
                     return (
-                        <div key={services._id} className="card lg:card-side w-3/4 m-auto my-5 h-[300px] bg-base-100 border">
-                            <figure><img src={services.strMealThumb} className='w-[400px]' alt="Album" /></figure>
+                        <div key={services._id} className="card lg:card-side  w-3/4 m-auto my-5 h-auto sm:h-[300px] bg-base-100 border">
+                            <figure><img src={services.strMealThumb} className='w-[600px] sm:w-[400px] ' alt="Album" /></figure>
                             <div className="card-body">
                                 <div className='flex justify-between items-center'>
                                     <h2 className="card-title">{services.strMeal}</h2>
