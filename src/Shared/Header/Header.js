@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../assests/logo/loho.png'
+import logo from '../../assests/logo/logo.png'
 import { AuthUseContext } from '../Context/UseAuthContext';
 
 const Header = () => {
@@ -25,7 +25,7 @@ const Header = () => {
                             </Link>
                             <ul className="p-2 bg-slate-100">
                                 <li><Link to='/addservice'>Add Service</Link></li>
-                                <li><Link to=''>My Reviews</Link></li>
+                                <li><Link to='/userReviews'>My Reviews</Link></li>
                             </ul>
                         </li>
                         <li><button className="btn btn-outline btn-warning"><Link onClick={handlerToSIgnOut} to='/'>Sign Out</Link></button></li>
@@ -41,7 +41,7 @@ const Header = () => {
         </>
     return (
         <div className='max-w-screen-xl mx-auto'>
-            <div className="navbar bg-base-100 ">
+            <div className="navbar justify-between bg-base-100 ">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -51,15 +51,15 @@ const Header = () => {
                             {navLinks}
                         </ul>
                     </div>
-                    <Link className="btn btn-ghost normal-case text-xl"> daisyUI</Link>
+                    <ul>
+                        <li><Link className="btn btn-ghost normal-case text-xl"><img src={logo} className='w-[160px] h-[60px] ' alt="" /></Link></li>
+                    </ul>
+
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
                         {navLinks}
                     </ul>
-                </div>
-                <div className="">
-
                 </div>
             </div>
         </div>

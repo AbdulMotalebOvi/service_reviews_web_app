@@ -18,7 +18,7 @@ const Banner = () => {
         <div style={myStyle}>
             <div className='max-w-screen-xl mx-auto '>
                 <div className='flex flex-col items-center justify-center text-[#444444d9]'>
-                    <h2 className='mt-28 font-bold text-center'>Aahana Kitchen's Menu List </h2>
+                    <h2 className='mt-28 font-bold text-center'>Aahar Kitchen's Menu List </h2>
                     <p className='text-[17px] flex items-center '>Home <span className='mx-2'><FaArrowRight /></span> <Link>Menu List View</Link></p>
                 </div>
             </div>

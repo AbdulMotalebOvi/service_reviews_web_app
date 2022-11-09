@@ -26,11 +26,12 @@ const ServiceReviews = () => {
 
                             {
 
-                                reviews.length >= 3 &&
+                                reviews.sort((dateA, dateB) => dateB.time - dateA.time).length >= 3 &&
                                 <>
                                     <Slider {...settings}>
                                         {
                                             reviews.map(sr => {
+
                                                 return (
 
                                                     <div >
