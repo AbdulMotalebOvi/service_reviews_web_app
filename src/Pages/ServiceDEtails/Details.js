@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
-import { useLoaderData, useNavigate } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
+import Lottie from "lottie-react";
+import animate from '../../animations/125886-login-bounce.json'
 import { AuthUseContext } from '../../Shared/Context/UseAuthContext';
 
 
@@ -88,8 +90,8 @@ const Details = () => {
                         <div className="mx-auto max-w-lg px-4 lg:px-8 sticky top-5">
                             {/* form start */}
                             {
-                                user?.email &&
-                                <>
+                                user?.email ?
+
                                     <form onSubmit={handlerToSubmit} className="grid grid-cols-6 gap-4">
 
                                         <div className="col-span-6">
@@ -169,7 +171,12 @@ const Details = () => {
                                             </button>
                                         </div>
                                     </form>
-                                </>
+                                    :
+                                    <div className='max-w-screen-xl mx-auto text-center space-y-5'>
+                                        <Lottie className='w-[130px] m-auto' animationData={animate} loop={true} />
+                                        <p className='text-2xl font-semibold text-[#444444d9]'>You're Not Logged In ,Please!</p>
+                                        <button className="text-center btn btn-outline btn-error"><Link to='/login'>Log In Now </Link></button>
+                                    </div>
 
                             }
                         </div>
