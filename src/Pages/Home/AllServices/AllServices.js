@@ -1,12 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaArrowRight, FaStar } from 'react-icons/fa';
+import { AuthUseContext } from '../../../Shared/Context/UseAuthContext';
 
 const AllServices = () => {
+    const { logOut } = useContext(AuthUseContext)
     const [allServices, setServices] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/allServices')
-            .then(res => res.json())
+        fetch('http://localhost:5000/allServices', {
+            headers: {
+                authorization: `Bareer ${localStorage.getItem('token')}`
+            }
+        })
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    return logOut()
+                }
+                return res.json()
+            })
             .then(data => setServices(data))
     }, [])
     return (
