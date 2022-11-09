@@ -26,7 +26,7 @@ export const routers = createBrowserRouter([
             {
                 path: '/serviceDetails/:id',
                 element: <PrivateRoute><Details></Details></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/allServices/${params.id}`)
+                loader: ({ params }) => fetch(`https://service-reviews.vercel.app/allServices/${params.id}`)
             },
             {
                 path: '/login',

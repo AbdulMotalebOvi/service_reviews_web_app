@@ -7,7 +7,7 @@ const AllServices = () => {
     const { logOut } = useContext(AuthUseContext)
     const [allServices, setServices] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/allServices', {
+        fetch('https://service-reviews.vercel.app/allServices', {
             headers: {
                 authorization: `Bareer ${localStorage.getItem('token')}`
             }

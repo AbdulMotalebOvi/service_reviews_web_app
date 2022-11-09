@@ -7,7 +7,7 @@ const Services = () => {
     const [services, setServices] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://service-reviews.vercel.app/services')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
@@ -17,21 +17,21 @@ const Services = () => {
             <h1 className='text-3xl font-bold my-5'>My Services</h1>
 
             <section>
-                <div class="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8">
+                <div className="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8">
                     <div
-                        class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:items-stretch"
+                        className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:items-stretch"
                     >
-                        <div class="flex items-center rounded bg-gray-100 p-8">
-                            <div class="mx-auto text-center lg:text-left">
-                                <h2 class="text-2xl font-bold">Services</h2>
+                        <div className="flex items-center rounded bg-gray-100 p-8">
+                            <div className="mx-auto text-center lg:text-left">
+                                <h2 className="text-2xl font-bold">Services</h2>
 
-                                <p class="mt-4 max-w-[45ch] text-sm text-gray-700">
+                                <p className="mt-4 max-w-[45ch] text-sm text-gray-700">
                                     A kitchen is a room that is used for cooking and for household jobs such as washing dishes. Synonyms: cookhouse, galley, kitchenette, scullery More Synonyms of kitchen. 2. See also soup kitchen.
                                 </p>
                                 <div>
                                     <Link
                                         to="/serviceALl"
-                                        class="mt-6 inline-block rounded bg-black px-6 py-3 text-sm text-white"
+                                        className="mt-6 inline-block rounded bg-black px-6 py-3 text-sm text-white"
                                     >
                                         View All Services
                                     </Link>
@@ -39,7 +39,7 @@ const Services = () => {
                             </div>
                         </div>
 
-                        <div class="grid md:grid-cols-2 gap-4 lg:col-span-2 lg:grid-cols-3 lg:py-12">
+                        <div className="grid md:grid-cols-2 gap-4 lg:col-span-2 lg:grid-cols-3 lg:py-12">
                             {
                                 services.map(sr => <SingleService
                                     key={sr._id}

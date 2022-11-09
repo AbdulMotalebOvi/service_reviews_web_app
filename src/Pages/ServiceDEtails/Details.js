@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import Lottie from "lottie-react";
@@ -38,7 +38,7 @@ const Details = () => {
             toast.error('Phone Number Should Be Minimum 11 Characters')
         }
         else {
-            fetch('http://localhost:5000/reviews', {
+            fetch('https://service-reviews.vercel.app/reviews', {
                 method: "POST",
                 headers: {
                     'content-type': 'application/json'

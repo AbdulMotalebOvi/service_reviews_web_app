@@ -54,6 +54,7 @@ const UseAuthContext = ({ children }) => {
     const authInfo = {
         user,
         loading,
+        setLoading,
         sigunUpWIthEmailANdPassword,
         updateUSer,
         createuserByGoogle,

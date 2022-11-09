@@ -9,7 +9,7 @@ const ServiceReviews = () => {
     const { user } = useContext(AuthUseContext)
     const [reviews, setReviews] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/allReviews')
+        fetch('https://service-reviews.vercel.app/allReviews')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [reviews])
@@ -68,19 +68,18 @@ const ServiceReviews = () => {
                                                         reviews.map(sr => {
 
                                                             return (
-
-                                                                <div >
+                                                                <div key={sr._id}>
                                                                     <div
-                                                                        class="rounded-2xl 
-                                                                m-5
-                                                                bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 shadow-xl"
+                                                                        className="rounded-2xl 
+                                            m-5
+                                            bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 shadow-xl"
                                                                     >
-                                                                        <div class="block rounded-xl bg-white p-6 sm:p-8" >
+                                                                        <div className="block rounded-xl bg-white p-6 sm:p-8" >
                                                                             <img src={sr.photo} className='w-[60px] h-[60px] rounded-full' alt="" />
                                                                             <p className='mt-2'>{sr.customer}</p>
-                                                                            <div class="mt-5 sm:pr-8">
-                                                                                <h3 class="text-xl font-bold text-gray-900">{sr.serviceName}</h3>
-                                                                                <p class="mt-2 text-sm text-gray-500">
+                                                                            <div className="mt-5 sm:pr-8">
+                                                                                <h3 className="text-xl font-bold text-gray-900">{sr.serviceName}</h3>
+                                                                                <p className="mt-2 text-sm text-gray-500">
                                                                                     {sr.message}
                                                                                 </p>
                                                                             </div>

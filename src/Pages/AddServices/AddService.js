@@ -15,7 +15,7 @@ const AddService = () => {
             photo,
             price
         }
-        fetch('http://localhost:5000/products', {
+        fetch('https://service-reviews.vercel.app/products', {
             method: "POST",
             headers: {
                 'content-type': "application/json"
@@ -44,7 +44,7 @@ const AddService = () => {
                  space-y-4">
                 <div className=''>
                     <div>
-                        <label for="email" className="sr-only">Name Of Products</label>
+                        <label htmlFor="email" className="sr-only">Name Of Products</label>
 
                         <div className="relative">
                             <input
@@ -60,7 +60,7 @@ const AddService = () => {
 
                 </div>
                 <div>
-                    <label for="Product Photo" className="sr-only">Name Of Products</label>
+                    <label htmlFor="Product Photo" className="sr-only">Name Of Products</label>
 
                     <div className="relative">
                         <input
@@ -80,14 +80,13 @@ const AddService = () => {
                     <label className="input-group">
                         <span>Price</span>
                         <input type="text" placeholder="10"
-                            name='price' className="input input-bordered" />
+                            name='price' className="input input-bordered w-1/2 sm:w-auto" />
                         <span>USD</span>
                     </label>
                 </div>
 
 
                 <div className="flex items-center justify-between">
-
                     <button className="btn btn-outline btn-primary">Add Product</button>
                 </div>
             </form>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import img1 from '../../../assests/services/int1.jpg'
 import img2 from '../../../assests/services/int2.jpg'
 import img3 from '../../../assests/services/int3.jpg'
@@ -68,8 +69,8 @@ const Kitchens = () => {
                             </p>
                         </div>
                         <div>
-                            <a
-                                href="/"
+                            <Link
+                                to=""
                                 aria-label=""
                                 className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
                             >
@@ -81,7 +82,7 @@ const Kitchens = () => {
                                 >
                                     <path d="M9.707,5.293l-5-5A1,1,0,0,0,3.293,1.707L7.586,6,3.293,10.293a1,1,0,1,0,1.414,1.414l5-5A1,1,0,0,0,9.707,5.293Z" />
                                 </svg>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                     <div className="flex items-center justify-center -mx-4 lg:pl-8">

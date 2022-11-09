@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { AuthUseContext } from '../../Shared/Context/UseAuthContext';
 
 const User = ({ user, handlerToDelete }) => {
+    const { setLoading } = useContext(AuthUseContext)
     const [updates, setUpdate] = useState(user)
     const { customer, _id, number, photo, price, serviceName, message } = updates;
     const [showModal, setShowModal] = React.useState(false);
     const handleUpdate = id => {
-        fetch(`http://localhost:5000/allReviews/${id}`, {
+        fetch(`https://service-reviews.vercel.app/allReviews/${id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'
@@ -18,6 +19,7 @@ const User = ({ user, handlerToDelete }) => {
             .then(data => {
                 if (data.acknowledged) {
                     toast.success('Review Updated Successfully')
+
                 }
             })
     }
@@ -26,6 +28,7 @@ const User = ({ user, handlerToDelete }) => {
         const value = event.target.value
         const update = { ...updates }
         update[field] = value;
+        setLoading(true)
         setUpdate(update)
     }
     return (
@@ -164,9 +167,7 @@ const User = ({ user, handlerToDelete }) => {
                                             </span>
                                         </button>
                                     </div>
-                                    {/*body*/}
 
-                                    {/*footer*/}
                                     <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
                                         <button
                                             className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"

@@ -9,14 +9,14 @@ const UserReviews = () => {
     const { user } = useContext(AuthUseContext)
     const [userReview, setUserReview] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/allReviews?email=${user?.email}`)
+        fetch(`https://service-reviews.vercel.app/allReviews?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setUserReview(data))
     }, [user?.email])
     const handlerToDelete = id => {
         const confirm = window.confirm("Are You SUre You Want To delete This Review?")
         if (confirm) {
-            fetch(`http://localhost:5000/allReviews/${id}`, {
+            fetch(`https://service-reviews.vercel.app/allReviews/${id}`, {
                 method: "DELETE"
             })
 
