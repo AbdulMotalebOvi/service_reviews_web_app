@@ -39,7 +39,7 @@ const Services = () => {
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-2 gap-4 lg:col-span-2 lg:grid-cols-3 lg:py-12">
+                        <div class="grid md:grid-cols-2 gap-4 lg:col-span-2 lg:grid-cols-3 lg:py-12">
                             {
                                 services.map(sr => <SingleService
                                     key={sr._id}

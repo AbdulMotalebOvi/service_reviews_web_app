@@ -1,26 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import logo from '../../assests/logo/logo.png'
 
 const Footer = () => {
     return (
         <div>
             <footer aria-label="Site Footer" class="bg-gray-50">
                 <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
-                    <span class="block h-10 w-32 rounded-lg bg-gray-200"></span>
+
 
                     <div class="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-                        <div>
-                            <p class="font-medium">Company</p>
-
-                            <nav
-                                aria-label="Footer Company Nav"
-                                class="mt-4 flex flex-col space-y-2 text-sm text-gray-500"
-                            >
-                                <a class="hover:opacity-75" href=""> About </a>
-                                <a class="hover:opacity-75" href=""> Meet the Team </a>
-                                <a class="hover:opacity-75" href=""> History </a>
-                                <a class="hover:opacity-75" href=""> Careers </a>
-                            </nav>
-                        </div>
+                        {/* <div className='mt-5'>
+                            <img className='sm:w-[70px]' src={logo} alt="" />
+                        </div> */}
 
                         <div>
                             <p class="font-medium">Services</p>
@@ -29,11 +21,10 @@ const Footer = () => {
                                 aria-label="Footer Services Nav"
                                 class="mt-4 flex flex-col space-y-2 text-sm text-gray-500"
                             >
-                                <a class="hover:opacity-75" href=""> 1on1 Coaching </a>
-                                <a class="hover:opacity-75" href=""> Company Review </a>
-                                <a class="hover:opacity-75" href=""> Accounts Review </a>
-                                <a class="hover:opacity-75" href=""> HR Consulting </a>
-                                <a class="hover:opacity-75" href=""> SEO Optimisation </a>
+                                <Link class="hover:opacity-75" to=""> Home Made Food</Link>
+                                <Link class="hover:opacity-75" to=""> Free Delivery</Link>
+                                <Link class="hover:opacity-75" to=""> Happy Review</Link>
+
                             </nav>
                         </div>
 
@@ -44,9 +35,9 @@ const Footer = () => {
                                 aria-label="Footer Helpful Nav"
                                 class="mt-4 flex flex-col space-y-2 text-sm text-gray-500"
                             >
-                                <a class="hover:opacity-75" href=""> Contact </a>
-                                <a class="hover:opacity-75" href=""> FAQs </a>
-                                <a class="hover:opacity-75" href=""> Live Chat </a>
+                                <Link class="hover:opacity-75" to=""> Contact</Link>
+                                <Link class="hover:opacity-75" to=""> FAQs</Link>
+                                <Link class="hover:opacity-75" to=""> Live Chat</Link>
                             </nav>
                         </div>
 
@@ -57,10 +48,10 @@ const Footer = () => {
                                 aria-label="Footer Legal Nav"
                                 class="mt-4 flex flex-col space-y-2 text-sm text-gray-500"
                             >
-                                <a class="hover:opacity-75" href=""> Privacy Policy </a>
-                                <a class="hover:opacity-75" href=""> Terms & Conditions </a>
-                                <a class="hover:opacity-75" href=""> Returns Policy </a>
-                                <a class="hover:opacity-75" href=""> Accessibility </a>
+                                <Link class="hover:opacity-75" to=""> Privacy Policy</Link>
+                                <Link class="hover:opacity-75" to=""> Terms & Conditions</Link>
+                                <Link class="hover:opacity-75" to=""> Returns Policy</Link>
+                                <Link class="hover:opacity-75" to=""> Accessibility</Link>
                             </nav>
                         </div>
                     </div>
@@ -68,19 +59,7 @@ const Footer = () => {
                     <div
                         class="mt-8 border-t border-gray-100 pt-8 sm:flex sm:items-center sm:justify-between"
                     >
-                        <p class="text-xs text-gray-500">&copy; 2022 Company Name</p>
-
-                        <strong
-                            class="inline-flex items-center gap-2 rounded border border-gray-200 p-2 text-sm font-medium"
-                        >
-                            <span> Status: </span>
-
-                            <span class="h-3 w-3 rounded-full bg-green-600"></span>
-
-                            <span class="font-medium text-green-600">
-                                All systems operational
-                            </span>
-                        </strong>
+                        <p class="text-xs text-gray-500">&copy; 2022 Aahana Kitchen's</p>
                     </div>
                 </div>
             </footer>
