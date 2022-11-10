@@ -53,51 +53,82 @@ const ServiceReviews = () => {
                 user?.email ?
                     <>
                         {
-                            reviews.length > 1 &&
-                            <>
+                            reviews.length <= 3 ?
                                 <div className='max-w-screen-xl mx-auto my-20'>
                                     <h1 className='text-2xl ml-5 text-[#444444d9] font-bold text-left'>My Customer's Reviews</h1>
-                                    <div>
-
+                                    <div className='grid grid-cols-3 gap-4'>
                                         {
-
-                                            reviews.sort((dateA, dateB) => dateB.time - dateA.time).length >= 3 &&
-                                            <>
-                                                <Slider {...settings}>
-                                                    {
-                                                        reviews.map(sr => {
-
-                                                            return (
-                                                                <div key={sr._id}>
-                                                                    <div
-                                                                        className="rounded-2xl 
+                                            reviews.map(sr => {
+                                                return (
+                                                    <div key={sr._id}>
+                                                        <div
+                                                            className="rounded-2xl 
                                             m-5
                                             bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 shadow-xl"
-                                                                    >
-                                                                        <div className="block rounded-xl bg-white p-6 sm:p-8" >
-                                                                            <img src={sr.photo} className='w-[60px] h-[60px] rounded-full' alt="" />
-                                                                            <p className='mt-2'>{sr.customer}</p>
-                                                                            <div className="mt-5 sm:pr-8">
-                                                                                <h3 className="text-xl font-bold text-gray-900">{sr.serviceName}</h3>
-                                                                                <p className="mt-2 text-sm text-gray-500">
-                                                                                    {sr.message}
-                                                                                </p>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
+                                                        >
+                                                            <div className="block rounded-xl bg-white p-6 sm:p-8" >
+                                                                <img src={sr.photo} className='w-[60px] h-[60px] rounded-full' alt="" />
+                                                                <p className='mt-2'>{sr.customer}</p>
+                                                                <div className="mt-5 sm:pr-8">
+                                                                    <h3 className="text-xl font-bold text-gray-900">{sr.serviceName}</h3>
+                                                                    <p className="mt-2 text-sm text-gray-500">
+                                                                        {sr.message}
+                                                                    </p>
                                                                 </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
-                                                            )
-                                                        })
-                                                    }
-                                                </Slider>
-
-                                            </>
-
+                                                )
+                                            })
                                         }
                                     </div>
                                 </div>
-                            </>
+                                :
+                                <>
+                                    <div className='max-w-screen-xl mx-auto my-20'>
+                                        <h1 className='text-2xl ml-5 text-[#444444d9] font-bold text-left'>My Customer's Reviews</h1>
+                                        <div>
+
+                                            {
+
+                                                reviews.sort((dateA, dateB) => dateB.time - dateA.time).length >= 3 &&
+                                                <>
+                                                    <Slider {...settings}>
+                                                        {
+                                                            reviews.map(sr => {
+
+                                                                return (
+                                                                    <div key={sr._id}>
+                                                                        <div
+                                                                            className="rounded-2xl 
+                                            m-5
+                                            bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 shadow-xl"
+                                                                        >
+                                                                            <div className="block rounded-xl bg-white p-6 sm:p-8" >
+                                                                                <img src={sr.photo} className='w-[60px] h-[60px] rounded-full' alt="" />
+                                                                                <p className='mt-2'>{sr.customer}</p>
+                                                                                <div className="mt-5 sm:pr-8">
+                                                                                    <h3 className="text-xl font-bold text-gray-900">{sr.serviceName}</h3>
+                                                                                    <p className="mt-2 text-sm text-gray-500">
+                                                                                        {sr.message}
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                )
+                                                            })
+                                                        }
+                                                    </Slider>
+
+                                                </>
+
+                                            }
+                                        </div>
+                                    </div>
+                                </>
                         }
                     </>
                     :

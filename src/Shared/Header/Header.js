@@ -35,7 +35,7 @@ const Header = () => {
                     </>
                     :
                     <>
-                        <li><button className="btn btn-outline btn-secondary mr-4"><Link to='/login'>Login</Link></button></li>
+                        <li><button className="btn btn-outline btn-secondary mr-4 my-3 sm:my-0"><Link to='/login'>Login</Link></button></li>
                         <li>
                             <button className="btn btn-outline btn-secondary"><Link to='/register'>Register</Link></button></li>
                     </>
@@ -54,7 +54,7 @@ const Header = () => {
                         </ul>
                     </div>
                     <ul>
-                        <li><Link className="btn btn-ghost normal-case text-xl"><img src={logo} className='w-[160px] h-[60px] ' alt="" /></Link></li>
+                        <li><Link to='/' className="btn btn-ghost normal-case text-xl"><img src={logo} className='w-[160px] h-[60px] ' alt="" /></Link></li>
                     </ul>
 
                 </div>
