@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assests/logo/logo.png'
 import { AuthUseContext } from '../Context/UseAuthContext';
+import { FaUser } from 'react-icons/fa';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthUseContext)
@@ -16,30 +17,7 @@ const Header = () => {
             <li><Link to='/serviceALl'>Services</Link></li>
             <li><Link to='/blog'>Blog</Link></li>
 
-            {
-                user?.email ?
-                    <>
 
-                        <li tabIndex={0}>
-                            <Link className="justify-between">
-                                Profile
-                                <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-                            </Link>
-                            <ul className="p-2 bg-slate-100">
-                                <li><Link to='/addservice'>Add Service</Link></li>
-                                <li><Link to='/userReviews'>My Reviews</Link></li>
-                            </ul>
-                        </li>
-                        <li><button className="btn btn-outline btn-warning"><Link onClick={handlerToSIgnOut} to='/'>Sign Out</Link></button></li>
-
-                    </>
-                    :
-                    <>
-                        <li><button className="btn btn-outline btn-secondary mr-4 my-3 sm:my-0"><Link to='/login'>Login</Link></button></li>
-                        <li>
-                            <button className="btn btn-outline btn-secondary"><Link to='/register'>Register</Link></button></li>
-                    </>
-            }
         </>
     return (
         <div className='max-w-screen-xl mx-auto'>
@@ -52,15 +30,113 @@ const Header = () => {
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-32 sm:w-52">
                             {navLinks}
                         </ul>
+
                     </div>
                     <ul>
                         <li><Link to='/' className="btn btn-ghost normal-case text-xl"><img src={logo} className='w-[160px] h-[60px] ' alt="" /></Link></li>
+                    </ul>
+                    <ul tabIndex={0} className="block lg:hidden">
+                        <div className="dropdown dropdown-end">
+                            <div className="w-10 rounded-full">
+                                {
+                                    user?.uid ?
+                                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">  <img src={user?.photoURL} alt="" />  </label>
+
+                                        :
+                                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                            <div className=' bg-slate-100 p-6 rounded-full'><div className='absolute top-3 left-3 text-[20px]'>
+                                                <FaUser /></div></div>
+                                        </label>
+
+                                }
+                            </div>
+
+                            <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                                <li>
+                                    <Link className="justify-between">
+                                        {user?.email}
+                                    </Link>
+                                </li>
+                                {
+                                    user?.email ?
+                                        <>
+
+                                            <li tabIndex={0}>
+                                                <Link className="justify-between">
+                                                    My Profile
+                                                </Link>
+                                                <ul className="p-2 bg-slate-100">
+                                                    <li><Link to='/addservice'>Add Service</Link></li>
+                                                    <li><Link to='/userReviews'>My Reviews</Link></li>
+                                                </ul>
+                                            </li>
+                                            <li><button className="btn btn-outline btn-warning"><Link onClick={handlerToSIgnOut} to='/'>Sign Out</Link></button></li>
+
+                                        </>
+                                        :
+                                        <>
+                                            <li><button className="btn btn-outline btn-secondary mr-4 my-3 "><Link to='/login'>Login</Link></button></li>
+                                            <li>
+                                                <button className="btn btn-outline btn-secondary"><Link to='/register'>Register</Link></button></li>
+                                        </>
+                                }
+                            </ul>
+                        </div>
                     </ul>
 
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
                         {navLinks}
+                    </ul>
+                    <ul>
+                        <div className="dropdown dropdown-end">
+
+                            <div className="w-10 rounded-full">
+                                {
+                                    user?.uid ?
+                                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">  <img src={user?.photoURL} alt="" />  </label>
+
+                                        :
+                                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                            <div className=' bg-slate-100 p-6 rounded-full'><div className='absolute top-3 left-3 text-[20px]'>
+                                                <FaUser /></div></div>
+                                        </label>
+
+                                }
+                            </div>
+
+                            <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                                <li>
+                                    <Link className="justify-between">
+                                        {user?.email}
+                                    </Link>
+                                </li>
+                                {
+                                    user?.email ?
+                                        <>
+
+                                            <li tabIndex={0}>
+                                                <Link className="justify-between">
+                                                    My Profile
+                                                </Link>
+                                                <ul className="p-2 bg-slate-100">
+                                                    <li><Link to='/addservice'>Add Service</Link></li>
+                                                    <li><Link to='/userReviews'>My Reviews</Link></li>
+                                                </ul>
+                                            </li>
+                                            <li><button className="btn btn-outline btn-warning"><Link onClick={handlerToSIgnOut} to='/'>Sign Out</Link></button></li>
+
+                                        </>
+                                        :
+                                        <>
+                                            <li><button className="btn btn-outline btn-secondary mr-4 lg:my-3 sm:my-0"><Link to='/login'>Login</Link></button></li>
+                                            <li>
+                                                <button className="btn btn-outline btn-secondary"><Link to='/register'>Register</Link></button></li>
+                                        </>
+                                }
+                            </ul>
+                        </div>
                     </ul>
                 </div>
             </div>
