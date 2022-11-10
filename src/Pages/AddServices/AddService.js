@@ -15,7 +15,7 @@ const AddService = () => {
             photo,
             price
         }
-        fetch('https://service-reviews.vercel.app/products', {
+        fetch('https://service-reviews-joyw3uijb-brightslife.vercel.app/products', {
             method: "POST",
             headers: {
                 'content-type': "application/json"

@@ -21,12 +21,12 @@ export const routers = createBrowserRouter([
             },
             {
                 path: '/serviceALl',
-                element: <PrivateRoute> <AllServices></AllServices></PrivateRoute>
+                element: <AllServices></AllServices>
             },
             {
                 path: '/serviceDetails/:id',
                 element: <PrivateRoute><Details></Details></PrivateRoute>,
-                loader: ({ params }) => fetch(`https://service-reviews.vercel.app/allServices/${params.id}`)
+                loader: ({ params }) => fetch(`https://service-reviews-joyw3uijb-brightslife.vercel.app/allServices/${params.id}`)
             },
             {
                 path: '/login',

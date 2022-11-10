@@ -7,7 +7,7 @@ Hosted in Netlify -> [Service Review](https://assignment-11-reviews.web.app/)
 
 ## API 
 
-Documentation Link -> [It API](https://service-reviews.vercel.app/)
+Documentation Link -> [It API](https://service-reviews-joyw3uijb-brightslife.vercel.app/)
 
 ## React Router Dom v6.4 
 

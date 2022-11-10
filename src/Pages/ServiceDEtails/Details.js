@@ -38,7 +38,7 @@ const Details = () => {
             toast.error('Phone Number Should Be Minimum 11 Characters')
         }
         else {
-            fetch('https://service-reviews.vercel.app/reviews', {
+            fetch('https://service-reviews-joyw3uijb-brightslife.vercel.app/reviews', {
                 method: "POST",
                 headers: {
                     'content-type': 'application/json'

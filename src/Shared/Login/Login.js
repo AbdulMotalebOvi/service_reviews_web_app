@@ -29,7 +29,7 @@ const Login = () => {
                 }
                 toast.success('Login Successful')
                 form.reset()
-                fetch('https://service-reviews.vercel.app/jwt', {
+                fetch('https://service-reviews-joyw3uijb-brightslife.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

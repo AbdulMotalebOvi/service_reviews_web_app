@@ -11,7 +11,7 @@ const AddedProdcuts = () => {
     useTitle('Added-Products')
     const [data, setData] = useState([])
     useEffect(() => {
-        fetch('https://service-reviews.vercel.app/addedProducts')
+        fetch('https://service-reviews-joyw3uijb-brightslife.vercel.app/addedProducts')
             .then(res => res.json())
             .then(data => setData(data))
     }, [data])

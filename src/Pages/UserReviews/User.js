@@ -8,7 +8,7 @@ const User = ({ user, handlerToDelete }) => {
     const { customer, _id, number, photo, price, serviceName, message } = updates;
     const [showModal, setShowModal] = React.useState(false);
     const handleUpdate = id => {
-        fetch(`https://service-reviews.vercel.app/allReviews/${id}`, {
+        fetch(`https://service-reviews-joyw3uijb-brightslife.vercel.app/allReviews/${id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'

@@ -7,17 +7,16 @@ const AllServices = () => {
     const [allServices, setServices] = useState([])
 
     useEffect(() => {
-        fetch('https://service-reviews.vercel.app/allServices')
-            .then(res =>
-                res.json()
-            )
+        fetch('https://service-reviews-joyw3uijb-brightslife.vercel.app/allServices')
+            .then(res => res.json())
             .then(data => setServices(data))
     }, [])
 
     return (
         <div className='max-w-screen-xl mx-auto my-20'>
+
             {
-                allServices?.map(services => {
+                allServices.map(services => {
                     return (
                         <div key={services._id} className="card lg:card-side  w-3/4 m-auto my-5 h-auto sm:h-[300px] bg-base-100 border">
                             <figure><img src={services.strMealThumb} className='w-[600px] sm:w-[400px] ' alt="Album" /></figure>
