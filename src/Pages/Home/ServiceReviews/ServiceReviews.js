@@ -6,11 +6,20 @@ import { AuthUseContext } from '../../../Shared/Context/UseAuthContext';
 import { Link } from 'react-router-dom';
 
 const ServiceReviews = () => {
-    const { user } = useContext(AuthUseContext)
+    const { user, logOut } = useContext(AuthUseContext)
     const [reviews, setReviews] = useState([])
     useEffect(() => {
-        fetch('https://service-reviews.vercel.app/allReviews')
-            .then(res => res.json())
+        fetch('https://service-reviews.vercel.app/allReviews', {
+            headers: {
+                authorization: `Bareer ${localStorage.getItem('token')}`
+            }
+        })
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    return logOut()
+                }
+                return res.json()
+            })
             .then(data => setReviews(data))
     }, [reviews])
     const settings = {
@@ -58,12 +67,12 @@ const ServiceReviews = () => {
                 user?.email ?
                     <>
                         {
-                            reviews.length <= 3 ?
+                            reviews?.length <= 3 ?
                                 <div className='max-w-screen-xl mx-auto my-20'>
                                     <h1 className='text-2xl ml-5 text-[#444444d9] font-bold text-left'>My Customer's Reviews</h1>
                                     <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4'>
                                         {
-                                            reviews.map(sr => {
+                                            reviews?.map(sr => {
                                                 return (
                                                     <div key={sr._id}>
                                                         <div

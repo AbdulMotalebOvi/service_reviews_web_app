@@ -4,24 +4,16 @@ import { FaArrowRight, FaStar } from 'react-icons/fa';
 import { AuthUseContext } from '../../../Shared/Context/UseAuthContext';
 
 const AllServices = () => {
-    const { logOut } = useContext(AuthUseContext)
     const [allServices, setServices] = useState([])
 
     useEffect(() => {
-        fetch('https://service-reviews.vercel.app/allServices', {
-            headers: {
-                authorization: `Bareer ${localStorage.getItem('token')}`
-            }
-        })
-            .then(res => {
-                if (res.status === 401 || res.status === 403) {
-                    return logOut()
-                }
-                return res.json()
-            })
+        fetch('https://service-reviews.vercel.app/allServices')
+            .then(res =>
+                res.json()
+            )
             .then(data => setServices(data))
-    }, [allServices])
-    console.log(allServices);
+    }, [])
+
     return (
         <div className='max-w-screen-xl mx-auto my-20'>
             {
